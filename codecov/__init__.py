@@ -14,11 +14,6 @@ try:
 except ImportError:  # pragma: no cover
     from urllib import urlencode
 
-try:
-    from shlex import quote
-except ImportError: # pragma: no cover
-    from pipes import quote
-
 import subprocess
 
 # https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning
@@ -541,8 +536,6 @@ def main(*argv, **kwargs):
 
     if codecov.root:
         root = codecov.root
-
-    root = quote(root)
 
     # Upload
     # ------
